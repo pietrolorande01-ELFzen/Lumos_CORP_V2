@@ -423,6 +423,91 @@ body{font-family:var(--fb);background:var(--corp);color:#fff;min-height:100vh}
 .economy-card .eco-val{font-family:var(--fd);font-size:2rem;font-weight:800;color:var(--am);line-height:1;margin-bottom:.3rem}
 .economy-card .eco-note{font-size:.75rem;color:rgba(255,255,255,.45);line-height:1.5}
 
+/* Relatórios timeline */
+.reports-panel .panel-body{padding:1.5rem}
+.reports-intro{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;margin-bottom:1.6rem}
+.reports-intro p{font-size:.82rem;color:rgba(255,255,255,.45);max-width:560px;line-height:1.6}
+.btn-extrair{
+  display:flex;align-items:center;gap:8px;white-space:nowrap;
+  background:linear-gradient(135deg,var(--ve),var(--verde));
+  color:#fff;border:none;padding:12px 22px;border-radius:50px;
+  font-family:var(--fb);font-size:.88rem;font-weight:700;cursor:pointer;
+  box-shadow:0 8px 24px rgba(26,158,80,.35);transition:transform .2s,box-shadow .2s;
+  text-decoration:none;
+}
+.btn-extrair:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(26,158,80,.45)}
+
+.report-timeline{position:relative;padding-left:6px}
+.report-timeline::before{
+  content:'';position:absolute;left:19px;top:8px;bottom:8px;width:2px;
+  background:linear-gradient(180deg,var(--verde),rgba(255,255,255,.06));
+}
+.rt-item{position:relative;padding:0 0 1.3rem 46px}
+.rt-item:last-child{padding-bottom:0}
+.rt-dot{
+  position:absolute;left:11px;top:2px;width:18px;height:18px;border-radius:50%;
+  background:var(--corp2);border:2px solid var(--verde);
+  display:flex;align-items:center;justify-content:center;font-size:.6rem;z-index:1;
+}
+.rt-item.locked .rt-dot{border-color:rgba(255,255,255,.18)}
+.rt-card{
+  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);
+  border-radius:14px;padding:.9rem 1.1rem;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+  transition:border-color .2s,background .2s;
+}
+.rt-item:not(.locked) .rt-card:hover{border-color:rgba(62,207,116,.35);background:rgba(62,207,116,.04)}
+.rt-card .rt-info .rt-title{font-size:.88rem;font-weight:700;color:#fff}
+.rt-card .rt-info .rt-sub{font-size:.74rem;color:rgba(255,255,255,.4);margin-top:2px}
+.rt-tag{
+  font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  padding:3px 10px;border-radius:50px;
+}
+.rt-tag.ready{background:rgba(62,207,116,.12);color:var(--verde);border:1px solid rgba(62,207,116,.25)}
+.rt-tag.locked{background:rgba(255,255,255,.05);color:rgba(255,255,255,.35);border:1px solid rgba(255,255,255,.08)}
+.rt-actions{display:flex;align-items:center;gap:.6rem}
+.btn-rt-ver{
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
+  color:rgba(255,255,255,.75);padding:7px 14px;border-radius:50px;
+  font-family:var(--fb);font-size:.76rem;font-weight:600;cursor:pointer;transition:all .2s;
+  text-decoration:none;
+}
+.rt-item:not(.locked) .btn-rt-ver:hover{border-color:var(--verde);color:var(--verde);background:rgba(62,207,116,.08)}
+.rt-item.locked .btn-rt-ver{cursor:not-allowed;opacity:.5}
+
+/* Créditos de carbono panel */
+.credits-hero{
+  display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-bottom:1.4rem;
+}
+.credit-stat{
+  background:linear-gradient(135deg,rgba(62,207,116,.12) 0%,rgba(62,207,116,.02) 100%);
+  border:1px solid rgba(62,207,116,.22);border-radius:16px;padding:1.3rem 1.4rem;
+}
+.credit-stat .cs-lab{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:.35rem}
+.credit-stat .cs-val{font-family:var(--fd);font-size:1.7rem;font-weight:800;color:var(--verde);line-height:1}
+.credit-stat .cs-note{font-size:.74rem;color:rgba(255,255,255,.45);margin-top:.4rem;line-height:1.5}
+.credits-body p{font-size:.85rem;color:rgba(255,255,255,.6);line-height:1.75;margin-bottom:1rem}
+.credits-body strong{color:#fff}
+.credits-steps{display:flex;flex-direction:column;gap:.7rem;margin-top:.3rem}
+.credit-step{
+  display:flex;gap:.9rem;align-items:flex-start;
+  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);
+  border-radius:14px;padding:.9rem 1.1rem;
+}
+.credit-step .num{
+  flex-shrink:0;width:26px;height:26px;border-radius:50%;
+  background:rgba(62,207,116,.15);color:var(--verde);
+  display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:800;
+}
+.credit-step .txt .t-title{font-size:.83rem;font-weight:700;color:#fff;margin-bottom:2px}
+.credit-step .txt .t-sub{font-size:.76rem;color:rgba(255,255,255,.45);line-height:1.55}
+.credits-source{font-size:.7rem;color:rgba(255,255,255,.3);margin-top:1.2rem;line-height:1.6;border-top:1px solid rgba(255,255,255,.06);padding-top:.9rem}
+
+@media(max-width:700px){
+  .credits-hero{grid-template-columns:1fr}
+  .rt-card{flex-direction:column;align-items:flex-start}
+}
+
 /* Responsive */
 @media(max-width:900px){
   .kpi-strip{grid-template-columns:1fr 1fr}
@@ -826,6 +911,151 @@ body{font-family:var(--fb);background:var(--corp);color:#fff;min-height:100vh}
             </div>
           </div>
 
+        </div>
+      </div>
+
+      <!-- ROW 3: Central de Relatórios -->
+      <div class="section-row full">
+        <div class="panel fade-in reports-panel">
+          <div class="panel-header">
+            <div class="panel-title">
+              <span class="icon">🗂️</span>
+              <div>
+                <h3>Central de Relatórios</h3>
+                <p>Exporte relatórios de desempenho, consumo e ESG para prestação de contas</p>
+              </div>
+            </div>
+            <div class="panel-badge">Acesso do gestor</div>
+          </div>
+          <div class="panel-body">
+            <div class="reports-intro">
+              <p>Gere um relatório completo com o consumo da frota, economia gerada, impacto ambiental e créditos de carbono acumulados no período — pronto para auditorias, ESG e prestação de contas a diretoria.</p>
+              <a class="btn-extrair" href="relatorio.html?periodo=Junho%2F2026" target="_blank" rel="noopener">📄 Extrair Relatório</a>
+            </div>
+
+            <div class="report-timeline">
+              <div class="rt-item">
+                <div class="rt-dot">⚡</div>
+                <div class="rt-card">
+                  <div class="rt-info">
+                    <div class="rt-title">Relatório de Junho / 2026</div>
+                    <div class="rt-sub">Gerado em 24/06/2026 · 34 veículos · 8.940 kg CO₂ evitado</div>
+                  </div>
+                  <div class="rt-actions">
+                    <span class="rt-tag ready">Disponível</span>
+                    <a class="btn-rt-ver" href="relatorio.html?periodo=Junho%2F2026" target="_blank" rel="noopener">Ver relatório →</a>
+                  </div>
+                </div>
+              </div>
+              <div class="rt-item">
+                <div class="rt-dot">⚡</div>
+                <div class="rt-card">
+                  <div class="rt-info">
+                    <div class="rt-title">Relatório de Maio / 2026</div>
+                    <div class="rt-sub">Gerado em 31/05/2026 · 31 veículos · 7.610 kg CO₂ evitado</div>
+                  </div>
+                  <div class="rt-actions">
+                    <span class="rt-tag ready">Disponível</span>
+                    <a class="btn-rt-ver" href="relatorio.html?periodo=Maio%2F2026" target="_blank" rel="noopener">Ver relatório →</a>
+                  </div>
+                </div>
+              </div>
+              <div class="rt-item">
+                <div class="rt-dot">⚡</div>
+                <div class="rt-card">
+                  <div class="rt-info">
+                    <div class="rt-title">Relatório de Abril / 2026</div>
+                    <div class="rt-sub">Gerado em 30/04/2026 · 29 veículos · 6.980 kg CO₂ evitado</div>
+                  </div>
+                  <div class="rt-actions">
+                    <span class="rt-tag ready">Disponível</span>
+                    <a class="btn-rt-ver" href="relatorio.html?periodo=Abril%2F2026" target="_blank" rel="noopener">Ver relatório →</a>
+                  </div>
+                </div>
+              </div>
+              <div class="rt-item locked">
+                <div class="rt-dot">🔒</div>
+                <div class="rt-card">
+                  <div class="rt-info">
+                    <div class="rt-title">Relatório de Março / 2026</div>
+                    <div class="rt-sub">Fora do período de retenção do plano Corp atual</div>
+                  </div>
+                  <div class="rt-actions">
+                    <span class="rt-tag locked">Plano Enterprise</span>
+                    <span class="btn-rt-ver">Bloqueado</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROW 4: Créditos de Carbono -->
+      <div class="section-row full">
+        <div class="panel fade-in">
+          <div class="panel-header">
+            <div class="panel-title">
+              <span class="icon">🌱</span>
+              <div>
+                <h3>Créditos de carbono — o que são e como sua empresa ganha</h3>
+                <p>Guia rápido para gestores sobre o mercado de carbono no Brasil</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel-body credits-body">
+            <div class="credits-hero">
+              <div class="credit-stat">
+                <div class="cs-lab">Sua frota já evitou</div>
+                <div class="cs-val">8,94 tCO₂e</div>
+                <div class="cs-note">Equivalente estimado em toneladas de CO₂ que deixaram de ser emitidas em 2026, com base na substituição de veículos a combustão por elétricos carregados via Lumos.</div>
+              </div>
+              <div class="credit-stat">
+                <div class="cs-lab">Referência de mercado (voluntário)</div>
+                <div class="cs-val">~US$ 5–20 <span style="font-size:.95rem;color:rgba(255,255,255,.4);font-weight:600">/ tCO₂e</span></div>
+                <div class="cs-note">Faixa de preço praticada em créditos voluntários (Verra/VCS, Gold Standard), variando conforme o tipo de projeto e a "safra" (vintage). Valores de mercado, sujeitos a variação — não é uma cotação garantida da Lumos.</div>
+              </div>
+            </div>
+
+            <p><strong>Crédito de carbono</strong> é um título que representa 1 tonelada de CO₂ (ou equivalente) que deixou de ser emitida, foi reduzida ou removida da atmosfera. Empresas que reduzem suas emissões abaixo do que seria "normal" para sua operação podem transformar essa redução em créditos — e vendê-los a outras empresas que ainda precisam compensar as suas.</p>
+
+            <p>No Brasil, a <strong>Lei 15.042/2024</strong> criou o <strong>SBCE (Sistema Brasileiro de Comércio de Emissões)</strong>, o futuro mercado regulado nacional de carbono. Ele ainda está em fase de implementação (regulamentação de MRV, credenciamento de verificadores e primeiro Plano Nacional de Alocação), com previsão de plena entrada em vigor ao longo dos próximos anos. Enquanto isso, empresas brasileiras já participam do <strong>mercado voluntário</strong>, negociando créditos certificados por padrões internacionais como Verra (VCS) e Gold Standard, ou instrumentos setoriais já existentes, como o CBio do RenovaBio (biocombustíveis), negociado na B3.</p>
+
+            <div class="credits-steps">
+              <div class="credit-step">
+                <div class="num">1</div>
+                <div class="txt">
+                  <div class="t-title">Meça suas emissões evitadas</div>
+                  <div class="t-sub">O painel Lumos Corp já calcula, mês a mês, quanto CO₂ sua frota deixa de emitir ao rodar elétrico com energia solar (dados GoodWe SEMS + ChargeGrid OCPP), a base de qualquer certificação.</div>
+                </div>
+              </div>
+              <div class="credit-step">
+                <div class="num">2</div>
+                <div class="txt">
+                  <div class="t-title">Consolide um inventário de GEE</div>
+                  <div class="t-sub">Reúna o histórico de recargas, km rodados e substituição de frota a combustão em um inventário de Gases de Efeito Estufa, seguindo metodologias como o GHG Protocol.</div>
+                </div>
+              </div>
+              <div class="credit-step">
+                <div class="num">3</div>
+                <div class="txt">
+                  <div class="t-title">Submeta a um padrão certificador</div>
+                  <div class="t-sub">Projetos de mobilidade elétrica/energia limpa podem ser registrados junto a Verra, Gold Standard ou, futuramente, ao SBCE, para verificação por terceiros e emissão formal dos créditos.</div>
+                </div>
+              </div>
+              <div class="credit-step">
+                <div class="num">4</div>
+                <div class="txt">
+                  <div class="t-title">Use ou negocie os créditos</div>
+                  <div class="t-sub">Os créditos emitidos podem compensar as próprias emissões residuais da empresa (frota, operações) ou ser vendidos a terceiros no mercado voluntário.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="credits-source">
+              Fontes: Lei 15.042/2024 (institui o SBCE) · KPMG ESG Insights, "Regulação do mercado de carbono" (2025) · McKinsey, "Mercado voluntário de carbono tem potencial gigantesco no Brasil". Os valores de mercado citados são referenciais e podem variar; a Lumos não realiza intermediação financeira de créditos de carbono.
+            </div>
+          </div>
         </div>
       </div>
 
